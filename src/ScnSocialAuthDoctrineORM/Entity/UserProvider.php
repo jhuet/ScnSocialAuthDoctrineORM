@@ -2,10 +2,10 @@
 namespace ScnSocialAuthDoctrineORM\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use ScnSocialAuth\Entity\UserProviderInterface;
+use ScnSocialAuth\Entity\UserProvider as BaseUserProvider;
 
 /** @ORM\Entity @ORM\Table(name="user_provider") */
-class UserProvider implements UserProviderInterface
+class UserProvider extends BaseUserProvider
 {
     /** @ORM\Id @ORM\Column(type="integer",name="user_id") */
     protected $userId;
@@ -15,61 +15,4 @@ class UserProvider implements UserProviderInterface
 
     /** @ORM\Column(type="string") */
     protected $provider;
-
-    /**
-     * @return the $userId
-     */
-    public function getUserId()
-    {
-        return $this->userId;
-    }
-
-    /**
-     * @param  integer      $userId
-     * @return UserProvider
-     */
-    public function setUserId($userId)
-    {
-        $this->userId = $userId;
-
-        return $this;
-    }
-
-    /**
-     * @return the $providerId
-     */
-    public function getProviderId()
-    {
-        return $this->providerId;
-    }
-
-    /**
-     * @param  integer      $providerId
-     * @return UserProvider
-     */
-    public function setProviderId($providerId)
-    {
-        $this->providerId = $providerId;
-
-        return $this;
-    }
-
-    /**
-     * @return the $provider
-     */
-    public function getProvider()
-    {
-        return $this->provider;
-    }
-
-    /**
-     * @param  string       $provider
-     * @return UserProvider
-     */
-    public function setProvider($provider)
-    {
-        $this->provider = $provider;
-
-        return $this;
-    }
 }
